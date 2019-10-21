@@ -1,1 +1,2 @@
-
+open exemplo.ppm
+save final.ppm
