@@ -6,7 +6,7 @@
 void readComandFile(char *fileName)
 {
     /*
-    			Essa função faz a leitura do arquivo de primitivas e chama as funções necessárias dependendo da primitiva lida
+     Essa função faz a leitura do arquivo de primitivas e chama as funções necessárias dependendo da primitiva lida
     *Parametros : filename, o nome do arquivo a ser lido
     */
     
