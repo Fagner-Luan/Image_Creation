@@ -1,6 +1,6 @@
 /*Arquivo com as implementações das funções de desenho*/
-#include "draw.h"
-#include "structures.h"
+#include "../draw.h"
+#include "../structures.h"
 
 void cleanImage() {
     
