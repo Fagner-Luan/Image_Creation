@@ -1,6 +1,6 @@
 /*Implementações das funções que trabalham com os arquivos e estruturas para a leitura e criação dos arquivos*/
-#include "../filemanip.h"
-#include "../draw.h"
+#include "../inc/filemanip.h"
+#include "../inc/draw.h"
 
 
 void readComandFile(char *fileName)
