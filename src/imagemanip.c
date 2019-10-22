@@ -1,5 +1,5 @@
 /*Arquivo com as implementações das funções que trabalham as imagens*/
-#include "../imagemanip.h"
+#include "../inc/imagemanip.h"
 
 Pixel **createImage(int width, int height) {
     /*Essa função cria um ponteiro de ponteiro de Pixel, aloca dinamicamente a memoria e retorna a estrutura alocada
