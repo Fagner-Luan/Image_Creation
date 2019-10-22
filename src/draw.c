@@ -16,3 +16,23 @@ void cleanImage() {
         }
     }
 }
+
+void drawCircle() {
+
+}
+
+void drawPolygon() {
+
+}
+
+void fill() {
+
+}
+
+void drawRect() {
+
+}
+
+void drawLine() {
+    
+}
