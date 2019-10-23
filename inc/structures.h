@@ -63,7 +63,7 @@ static char imageSaveName[61];
 static char comand[31];
 
 //variaveis para caminhos dos arquivos
-static char txtPath[] = "../txt/";
+static char txtPath[] = "../TXT/";
 
 static char ppmPath[] = "../ppm/";
 
