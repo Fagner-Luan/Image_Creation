@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 	int userChoice;
 	Bool keepRunning = True;
 	
-	int aruments = argc;
+	int arguments = argc;
 	
 	do {
 		
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		
 		destroyFile(comandFile);
 		destroyFile(imageFile);
-		destroyFile(newImageFile);
+		destroyFile(newImgFile);
 		destroyImage(image, height);
 		
 		printf("Digite 1 para trabalhar outro arquivo ou 2 para encerrar: ");
