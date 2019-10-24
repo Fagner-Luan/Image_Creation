@@ -17,6 +17,8 @@ void readComandFile(char *fileName)
         return ;
     }
     
+   printf("Processando dados............\n");
+    
     while (1)
     {
         fscanf(comandFile, "%s", comand);
