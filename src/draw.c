@@ -29,10 +29,10 @@ void fill(int i, int j, Pixel pixelColor, Pixel paintColor) {
 
 }
 
-void drawRect() {
+void drawRect(int numberOfPoints, Point *points, Pixel color) {
 
 }
 
-void drawLine() {
+void drawLine(Point p1, Point p2, Pixel color) {
     
 }
