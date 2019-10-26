@@ -40,7 +40,7 @@ void readComandFile(char *fileName)
         }
         else if (strcmp(comand, "rect") == 0) {
             int numberOfPoints;
-            fscanf(comandFile,"%d",numberOfPoints);
+            fscanf(comandFile,"%d",&numberOfPoints);
             Point points[numberOfPoints];
 
             for (int i = 0; i < numberOfPoints; i++) {
