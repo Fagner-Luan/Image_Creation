@@ -17,11 +17,11 @@ void cleanImage(Pixel clearColor) {
     }
 }
 
-void drawCircle() {
+void drawCircle(int radius, Point point, Pixel color) {
 
 }
 
-void drawPolygon() {
+void drawPolygon(int numberOfPoints, Point *points, Pixel color) {
 
 }
 
