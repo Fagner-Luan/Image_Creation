@@ -1,6 +1,7 @@
 #ifndef DRAW_H
 #define DRAW_H
 /*Arquivo com as assinaturas das funções de desenho na imagem*/
+#include "structures.h"
 
 void cleanImage(Pixel clearColor);
 
