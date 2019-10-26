@@ -1,6 +1,6 @@
 /*Arquivo com as implementações das funções que trabalham as imagens*/
 #include "../inc/imagemanip.h"
-#include <string.h>//necessário para strcat
+#include <string.h>//necessário  strcat
 
 Pixel **createImage(int width, int height) {
     /*Essa função cria um ponteiro de ponteiro de Pixel, aloca dinamicamente a memoria e retorna a estrutura alocada
@@ -33,7 +33,7 @@ void saveImage(char *fileName) {
     *parametros: fileName, o nome do arquivo a ser salvo
     */
     
-    imageFile = fopen(strcat(ppmPath,fileName), "w");
+   FILE *imageFile = fopen(strcat(ppmPath,fileName), "w");
     
     if (imageFile == NULL) {
         printf("Falha na abertura do arquivo\n");
@@ -51,6 +51,8 @@ void saveImage(char *fileName) {
         
         fprintf(imageFile, "\n");
     }
+
+    fclose(imageFile);
 }
 
 
@@ -75,7 +77,9 @@ void openImage(char *fileName) {
     *Parametro: fileName, o nome do arquivo ppm a ser aberto.
     */
     
-    newImgFile = fopen(strcat(ppmPath,fileName),"r");
+    int quality;
+
+    FILE *newImgFile = fopen(strcat(ppmPath,fileName),"r");
     
     if (newImgFile == NULL) {
         printf("Falha na abertura do arquivo\n");
@@ -94,4 +98,6 @@ void openImage(char *fileName) {
             fscanf(newImgFile, "%hhu %hhu %hhu", &image[y][x].red, &image[y][x].green, &image[y][x].blue);
         }
     }
+
+    fclose(newImgFile);
 }
