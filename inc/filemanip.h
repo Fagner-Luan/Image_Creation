@@ -7,6 +7,4 @@
 
 void readComandFile(char *fileName);
 
-void destroyFile(FILE *file);
-
 #endif
