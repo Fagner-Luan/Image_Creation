@@ -25,7 +25,7 @@ void drawPolygon(int numberOfPoints, Point *points, Pixel color) {
 
 }
 
-void fill() {
+void fill(int i, int j, Pixel pixelColor, Pixel paintColor) {
 
 }
 
