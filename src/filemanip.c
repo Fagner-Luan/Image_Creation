@@ -18,6 +18,7 @@ void readComandFile(char *fileName)
     }
 
     char comand[61];
+    Pixel color;
     
     while (True)
     {
@@ -29,7 +30,7 @@ void readComandFile(char *fileName)
             image = createImage(width, height);
         }
         else if (strcmp(comand, "color") == 0) {
-            Pixel color;
+            
             fscanf(comandFile, "%hhu %hhu %hhu", &color.red, &color.green, &color.blue);
         }
         else if (strcmp(comand, "clear") == 0) {
@@ -47,14 +48,14 @@ void readComandFile(char *fileName)
                 fscanf(comandFile,"%d %d",&points[i].x, &points[i].y);
             }
 
-            drawRect(numberOfPoints, points);
+            drawRect(numberOfPoints, points, color);
         }
         else if (strcmp(comand, "circle") == 0) {
             int radius;
             Point point;
             fscanf(comandFile, "%d %d %d", &point.x, &point.y, &radius);
             
-            drawCircle(radius, point);
+            drawCircle(radius, point, color);
         }
         else if (strcmp(comand, "polygon") == 0) {
             int numberOfPoints;
@@ -65,7 +66,7 @@ void readComandFile(char *fileName)
             for (int i = 0; i < numberOfPoints; i++) {
                 fscanf(comandFile,"%d %d",&points[i].x,&points[i].y);
             }
-            drawPolygon(numberOfPoints,points);
+            drawPolygon(numberOfPoints,points, color);
         }
         else if (strcmp(comand, "fill") == 0) {
             Point point;
@@ -89,6 +90,11 @@ void readComandFile(char *fileName)
             char imageOpenName[61];
             fscanf(comandFile,"%s",imageOpenName);
             openImage(imageOpenName);
+        }
+        else if (strcmp(comand, "line") == 0) {
+        	Point p1, p2;
+            fscanf(comandFile, "%d %d %d %d", &p1.x, &p1.y, &p2.x, &p2.y);
+            drawLine(p1, p2, color);
         }
         
         if (feof(comandFile)) {
