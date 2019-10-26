@@ -4,9 +4,9 @@
 
 void cleanImage(Pixel clearColor);
 
-void drawCircle(int radius, Point point);
+void drawCircle(int radius, Point point, Pixel color);
 
-void drawPolygon(int numberOfPoints, Point *points);
+void drawPolygon(int numberOfPoints, Point *points, Pixel color);
 
 void fill(int i, int j, Pixel pixelColor, Pixel paintColor);
 
