@@ -12,6 +12,6 @@ void fill(int i, int j, Pixel pixelColor, Pixel paintColor);
 
 void drawRect(int numberOfPoints, Point *points);
 
-void drawLine(Point p1, Point p2);
+void drawLine(Point p1, Point p2, Pixel color);
 
 #endif
