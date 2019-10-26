@@ -2,7 +2,7 @@
 #include "../inc/draw.h"
 #include "../inc/structures.h"
 
-void cleanImage() {
+void cleanImage(Pixel clearColor) {
     
     /*Essa função é responsável por limpar a imagem, dada uma certa cor;
     
