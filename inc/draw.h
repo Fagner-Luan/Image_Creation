@@ -2,16 +2,16 @@
 #define DRAW_H
 /*Arquivo com as assinaturas das funções de desenho na imagem*/
 
-void cleanImage();
+void cleanImage(Pixel clearColor);
 
-void drawCircle();
+void drawCircle(int radius, Point point);
 
-void drawPolygon();
+void drawPolygon(int numberOfPoints, Point *points);
 
-void fill();
+void fill(int i, int j, Pixel pixelColor, Pixel paintColor);
 
-void drawRect();
+void drawRect(int numberOfPoints, Point *points);
 
-void drawLine();
+void drawLine(Point p1, Point p2);
 
 #endif
