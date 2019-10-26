@@ -10,7 +10,7 @@ void drawPolygon(int numberOfPoints, Point *points, Pixel color);
 
 void fill(int i, int j, Pixel pixelColor, Pixel paintColor);
 
-void drawRect(int numberOfPoints, Point *points);
+void drawRect(int numberOfPoints, Point *points, Pixel color);
 
 void drawLine(Point p1, Point p2, Pixel color);
 
