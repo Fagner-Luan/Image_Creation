@@ -34,5 +34,23 @@ void drawRect(int numberOfPoints, Point *points, Pixel color) {
 }
 
 void drawLine(Point p1, Point p2, Pixel color) {
-    
+    int d = 0, dx = 0, dy = 0, incE = 0, incNE = 0;
+    dx = p2.x - p1.x;
+    dy = p2.y - p1.y;
+    d = 2 * dy - dx;
+    incE = 2 * dy; // increm. que move para E
+    incNE = 2 * (dy - dx); // increm. que move para NE
+    int x = p1.x, y = p1.y;
+    image[y][x] = color;
+    while(x < p2.x) {
+        if (d <= 0) {
+            d = d + incE; // escolhe E
+            x++;
+        } else {
+            d = d + incNE;
+            x++;
+            y++; // pois é maior que 45º
+        }
+        image[y][x] = color;
+    } //fim while
 }
