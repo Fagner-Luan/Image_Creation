@@ -22,9 +22,9 @@ int main(int argc, char *argv[])
 		
 		readComandFile(comandFileName);
 		
-		destroyFile(comandFile);
-		destroyFile(imageFile);
-		destroyFile(newImgFile);
+		//destroyFile(comandFile);
+		//destroyFile(imageFile);
+		//destroyFile(newImgFile);
 		destroyImage(image, height);
 		
 		printf("Digite 1 para trabalhar outro arquivo ou 2 para encerrar: ");
