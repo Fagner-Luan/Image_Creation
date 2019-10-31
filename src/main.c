@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
 	Bool keepRunning = True;
 	
 	int arguments = argc;
+	char comandFileName[61];
 	
 	do {
 		
