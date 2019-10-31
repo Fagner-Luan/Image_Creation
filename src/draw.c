@@ -3,12 +3,7 @@
 
 
 void cleanImage(Pixel clearColor) {
-    
-    /*Essa função é responsável por limpar a imagem, dada uma certa cor;
-    
-    *Parametros: a função não recebe parametros.
-    
-    */
+    /*Essa função é responsável por limpar a imagem, dada uma certa cor; */
     
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
@@ -33,6 +28,7 @@ void drawRect(int numberOfPoints, Point *points, Pixel color) {
 
 }
 
+// Só está funcionando para o oitavo quadrante de Bresenham
 void drawLine(Point p1, Point p2, Pixel color) {
     int d = 0, dx = 0, dy = 0, incE = 0, incNE = 0;
     dx = p2.x - p1.x;
@@ -42,7 +38,7 @@ void drawLine(Point p1, Point p2, Pixel color) {
     incNE = 2 * (dy - dx); // increm. que move para NE
     int x = p1.x, y = p1.y;
     image[y][x] = color;
-    while(x < p2.x) {
+    while(x <= p2.x && y <= p2.y) {
         if (d <= 0) {
             d = d + incE; // escolhe E
             x++;
