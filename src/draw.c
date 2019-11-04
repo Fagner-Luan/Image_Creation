@@ -17,6 +17,22 @@ void drawCircle(int radius, Point point, Pixel color) {
 }
 
 void drawPolygon(int numberOfPoints, Point *points, Pixel color) {
+	/*Essa função é responsável por desenhar os poligonos na imagem;
+ *Parametros: numberOfPoints, o numero de pontos do poligono, *points o vetor de pontos do poligonos e color a cor para o desenho
+*/
+
+
+
+	Point first, last;
+
+	first = points[0];
+	last = points[numberOfPoints-1];
+
+	for (int i = 0; i < numberOfPoints-1; i++) {
+		drawLine(points[i], points[i+1], color);
+	}
+
+	drawLine(last, first, color);
 
 }
 
