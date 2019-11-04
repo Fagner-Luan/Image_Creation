@@ -21,7 +21,18 @@ void drawPolygon(int numberOfPoints, Point *points, Pixel color) {
 }
 
 void fill(int i, int j, Pixel pixelColor, Pixel paintColor) {
-
+    /*Essa função é responsável por preencher uma determinada região da imagem com uma certa cor;
+	
+	*Parametros: i e j, variaveis para representar as linhas e colunas da matriz respectivamente, pixelColor e paintColor as cores do pixel do ponto escolhido e a cor a preencher respectivamente
+	*/
+	
+	if (i >= 0 && i < height && j >= 0 && j < width && image[i][j] == pixelColor) {
+		image[i][j] = paintColor;
+		fill(i - 1, j, pixelColor, paintColor);
+		fill(i + 1, j, pixelColor, paintColor);
+		fill(i, j - 1, pixelColor, paintColor);
+		fill(i, j + 1, pixelColor, PaintColor);
+	}
 }
 
 void drawRect(int numberOfPoints, Point *points, Pixel color) {
