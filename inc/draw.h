@@ -15,4 +15,6 @@ void drawRect(int numberOfPoints, Point *points, Pixel color);
 
 void drawLine(Point p1, Point p2, Pixel color);
 
+void insertPixel(int x, int y);
+
 #endif
