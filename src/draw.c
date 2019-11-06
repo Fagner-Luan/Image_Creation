@@ -106,3 +106,34 @@ void drawCircle(int xc, int yc, int x, int y, Pixel color)
     	insertPixel(xc+y, yc-x, color); 
     	insertPixel(xc-y, yc-x, color); 
 }
+
+
+void bresenhamCircle(int xc, int yc, int radius, Pixel color)
+{
+	/*Função responsável por fazer o circulo ditamente;
+	 *Parametros: xc e yc, coordenadas do centro da imagem
+	              radius, o raio do circulo
+		      color a cor a pintar a imagem
+        */
+	
+	int x, y, d;
+	
+	x = 0;
+	y = radius;
+	d = 3 - 2 * radius;
+	
+	drawCircle(xc, yc, x, y);
+	
+	while (y >= x) {
+		x++;
+		
+		if (d > 0) {
+			y--;
+			d += 4 * (x - y) + 10;
+		}
+		else {
+			d += 4 * x + 6;
+			drawCircle(xc, yc, x, y);
+		}
+	}
+}
