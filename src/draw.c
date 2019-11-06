@@ -81,5 +81,28 @@ void drawLine(Point p1, Point p2, Pixel color) {
 
 void insertPixel(int x, int y, Pixel color)
 {
+	/*Essa função é responsável por inserir uma cor no pixel determinado;
+	 *Parametros: x e y as coordenadas e color a cor a pintar a imagem.
+	*/
+	
 	image[x][y] = color;
+}
+
+
+void drawCircle(int xc, int yc, int x, int y, Pixel color) 
+{
+	/*Função responsável por plotar os pixels do circulo;
+	 *Parametros: xc e xy, as coordenadas x e y
+	              x e y valores recebidos da função para desenhos do circulo de Bresenham
+		      color a cor a pintar a imagem;
+       */
+	
+	insertPixel(xc+x, yc+y, color); 
+    	insertPixel(xc-x, yc+y, color); 
+    	insertPixel(xc+x, yc-y, color); 
+    	insertPixel(xc-x, yc-y, color); 
+    	insertPixel(xc+y, yc+x, color); 
+    	insertPixel(xc-y, yc+x, color); 
+    	insertPixel(xc+y, yc-x, color); 
+    	insertPixel(xc-y, yc-x, color); 
 }
