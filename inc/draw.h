@@ -7,7 +7,7 @@ void cleanImage(Pixel clearColor);
 
 void drawCircle(int xc, int yc, int x, int y, Pixel color);
 
-void bresenhamCircle(int xc, int yc, int radius);
+void bresenhamCircle(int xc, int yc, int radius, Pixel color);
 
 void drawPolygon(int numberOfPoints, Point *points, Pixel color);
 
