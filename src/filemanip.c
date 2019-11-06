@@ -52,10 +52,10 @@ void readComandFile(char *fileName)
         }
         else if (strcmp(comand, "circle") == 0) {
             int radius;
-            Point point;
-            fscanf(comandFile, "%d %d %d", &point.x, &point.y, &radius);
+            int xc, yc;
+            fscanf(comandFile, "%d %d", &xc, &yc);
             
-            drawCircle(radius, point, color);
+            bresenhamCircle(int xc, int yc, int radius, color);
         }
         else if (strcmp(comand, "polygon") == 0) {
             int numberOfPoints;
