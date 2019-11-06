@@ -22,14 +22,14 @@ void drawPolygon(int numberOfPoints, Point *points, Pixel color) {
 */
 
 
-
+	int ponots = numberOfPoints;
 	Point first, last;
 
 	first = points[0];
-	last = points[numberOfPoints-1];
+	last = points[pontos-1];
 
-	for (int i = 0; i < numberOfPoints-1; i++) {
-		drawLine(points[i], points[i+1], color);
+	for (int i = 0; i < pontos; i++) {
+		drawLine(points[i], points[(i+1)%n], color);
 	}
 
 	drawLine(last, first, color);
