@@ -77,3 +77,9 @@ void drawLine(Point p1, Point p2, Pixel color) {
         image[y][x] = color;
     } //fim while
 }
+
+
+void insertPixel(int x, int y, Pixel color)
+{
+	image[x][y] = color;
+}
