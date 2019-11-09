@@ -2,61 +2,65 @@
 #include "../inc/draw.h"
 
 
-void cleanImage(Pixel clearColor) {
-    /*Essa função é responsável por limpar a imagem, dada uma certa cor; */
+void cleanImage(Pixel clearColour) {
+    /*Essa função é responsável por limpar a imagem, dada uma certa cor; 
+     *Parâmetros: clearColour, a cor para limpar a imagem.
+    */
     
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
-            image[y][x] = clearColor;
+            image[y][x] = clearColour;
         }
     }
 }
 
-void drawCircle(int radius, Point point, Pixel color) {
 
-}
 
-void drawPolygon(int numberOfPoints, Point *points, Pixel color) {
+void drawPolygon(int numberOfPoints, Point *points, Pixel colour) {
 	/*Essa função é responsável por desenhar os poligonos na imagem;
- *Parametros: numberOfPoints, o numero de pontos do poligono, *points o vetor de pontos do poligonos e color a cor para o desenho
+ *Parametros: numberOfPoints, o numero de pontos do poligono, *points o vetor de pontos do poligonos e colour a cor para o desenho
 */
 
 
 	int ponots = numberOfPoints;
-	Point first, last;
 
-	first = points[0];
-	last = points[pontos-1];
 
 	for (int i = 0; i < pontos; i++) {
-		drawLine(points[i], points[(i+1)%n], color);
+		drawLine(points[i], points[(i+1)%n], colour);
 	}
-
-	drawLine(last, first, color);
 
 }
 
-void fill(int i, int j, Pixel pixelColor, Pixel paintColor) {
+void fill(int i, int j, Pixel pixelColour, Pixel paintColour) {
     /*Essa função é responsável por preencher uma determinada região da imagem com uma certa cor;
 	
-	*Parametros: i e j, variaveis para representar as linhas e colunas da matriz respectivamente, pixelColor e paintColor as cores do pixel do ponto escolhido e a cor a preencher respectivamente
+	*Parametros: i e j, variaveis para representar as linhas e colunas da matriz respectivamente, pixelColour e paintColour as cores do pixel do ponto escolhido e a cor a preencher respectivamente
 	*/
 	
-	if (i >= 0 && i < height && j >= 0 && j < width && image[i][j] == pixelColor) {
+	if (i >= 0 && i < height && j >= 0 && j < width && image[i][j].red == pixelColour.red && image[i][j].green == pixelColour.green && image[i][j].blue == pixelColour.blue) {
 		image[i][j] = paintColor;
-		fill(i - 1, j, pixelColor, paintColor);
-		fill(i + 1, j, pixelColor, paintColor);
-		fill(i, j - 1, pixelColor, paintColor);
-		fill(i, j + 1, pixelColor, PaintColor);
+		fill(i - 1, j, pixelColour, paintColour);
+		fill(i + 1, j, pixelColour, paintColour);
+		fill(i, j - 1, pixelColour, paintColour);
+		fill(i, j + 1, pixelColour, PaintColour);
 	}
 }
 
-void drawRect(int numberOfPoints, Point *points, Pixel color) {
+void drawRect(int numberOfPoints, Point *points, Pixel colour) {
+    /*Função responsável por desenhar um retângulo;
+     *Parâmetros: numberOfPoints, o número de pontos, points o vetor de pontos e colour a cor pintar a imagem
+    */
 
+    int pontos = numberOfPoints;
+    
+    for (int i = 0; i < pontos; i++) {
+        
+        drawLine(points[i], points[(i+1)%pontos], colour);
+    }
 }
 
 // Só está funcionando para o oitavo quadrante de Bresenham
-void drawLine(Point p1, Point p2, Pixel color) {
+void drawLine(Point p1, Point p2, Pixel colour) {
     int d = 0, dx = 0, dy = 0, incE = 0, incNE = 0;
     dx = p2.x - p1.x;
     dy = p2.y - p1.y;
@@ -74,46 +78,46 @@ void drawLine(Point p1, Point p2, Pixel color) {
             x++;
             y++; // pois é maior que 45º
         }
-        image[y][x] = color;
+        image[y][x] = colour;
     } //fim while
 }
 
 
-void insertPixel(int x, int y, Pixel color)
+void insertPixel(int x, int y, Pixel colour)
 {
 	/*Essa função é responsável por inserir uma cor no pixel determinado;
 	 *Parametros: x e y as coordenadas e color a cor a pintar a imagem.
 	*/
 	
-	image[x][y] = color;
+	image[x][y] = colour;
 }
 
 
-void drawCircle(int xc, int yc, int x, int y, Pixel color) 
+void drawCircle(int xc, int yc, int x, int y, Pixel colour) 
 {
 	/*Função responsável por plotar os pixels do circulo;
 	 *Parametros: xc e xy, as coordenadas x e y
 	              x e y valores recebidos da função para desenhos do circulo de Bresenham
-		      color a cor a pintar a imagem;
+		      colour a cor a pintar a imagem;
        */
 	
-	insertPixel(xc+x, yc+y, color); 
-    	insertPixel(xc-x, yc+y, color); 
-    	insertPixel(xc+x, yc-y, color); 
-    	insertPixel(xc-x, yc-y, color); 
-    	insertPixel(xc+y, yc+x, color); 
-    	insertPixel(xc-y, yc+x, color); 
-    	insertPixel(xc+y, yc-x, color); 
-    	insertPixel(xc-y, yc-x, color); 
+	insertPixel(xc+x, yc+y, colour); 
+    	insertPixel(xc-x, yc+y, colour); 
+    	insertPixel(xc+x, yc-y, colour); 
+    	insertPixel(xc-x, yc-y, colour); 
+    	insertPixel(xc+y, yc+x, colour); 
+    	insertPixel(xc-y, yc+x, colour); 
+    	insertPixel(xc+y, yc-x, colour); 
+    	insertPixel(xc-y, yc-x, colour); 
 }
 
 
-void bresenhamCircle(int xc, int yc, int radius, Pixel color)
+void bresenhamCircle(int xc, int yc, int radius, Pixel colour)
 {
 	/*Função responsável por fazer o circulo ditamente;
 	 *Parametros: xc e yc, coordenadas do centro da imagem
 	              radius, o raio do circulo
-		      color a cor a pintar a imagem
+		      colour a cor a pintar a imagem
         */
 	
 	int x, y, d;
@@ -122,7 +126,7 @@ void bresenhamCircle(int xc, int yc, int radius, Pixel color)
 	y = radius;
 	d = 3 - 2 * radius;
 	
-	drawCircle(xc, yc, x, y);
+	drawCircle(xc, yc, x, y, colour);
 	
 	while (y >= x) {
 		x++;
@@ -133,7 +137,7 @@ void bresenhamCircle(int xc, int yc, int radius, Pixel color)
 		}
 		else {
 			d += 4 * x + 6;
-			drawCircle(xc, yc, x, y);
+			drawCircle(xc, yc, x, y, colour);
 		}
 	}
 }
