@@ -3,20 +3,20 @@
 /*Arquivo com as assinaturas das funções de desenho na imagem*/
 #include "structures.h"
 
-void cleanImage(Pixel clearColor);
+void cleanImage(Pixel clearColour);
 
-void drawCircle(int xc, int yc, int x, int y, Pixel color);
+void drawCircle(int xc, int yc, int x, int y, Pixel colour);
 
-void bresenhamCircle(int xc, int yc, int radius, Pixel color);
+void bresenhamCircle(int xc, int yc, int radius, Pixel colour);
 
-void drawPolygon(int numberOfPoints, Point *points, Pixel color);
+void drawPolygon(int numberOfPoints, Point *points, Pixel colour);
 
-void fill(int i, int j, Pixel pixelColor, Pixel paintColor);
+void fill(int i, int j, Pixel pixelColour, Pixel paintColour);
 
-void drawRect(int numberOfPoints, Point *points, Pixel color);
+void drawRect(int numberOfPoints, Point *points, Pixel colour);
 
-void drawLine(Point p1, Point p2, Pixel color);
+void drawLine(Point p1, Point p2, Pixel colour);
 
-void insertPixel(int x, int y, Pixel color);
+void insertPixel(int x, int y, Pixel colour);
 
 #endif
