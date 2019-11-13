@@ -59,27 +59,87 @@ void drawRect(int numberOfPoints, Point *points, Pixel colour) {
     }
 }
 
-// Só está funcionando para o oitavo quadrante de Bresenham
-void drawLine(Point p1, Point p2, Pixel colour) {
-    int d = 0, dx = 0, dy = 0, incE = 0, incNE = 0;
-    dx = p2.x - p1.x;
-    dy = p2.y - p1.y;
-    d = 2 * dy - dx;
-    incE = 2 * dy; // increm. que move para E
-    incNE = 2 * (dy - dx); // increm. que move para NE
-    int x = p1.x, y = p1.y;
-    image[y][x] = color;
-    while(x <= p2.x && y <= p2.y) {
-        if (d <= 0) {
-            d = d + incE; // escolhe E
-            x++;
-        } else {
-            d = d + incNE;
-            x++;
-            y++; // pois é maior que 45º
+
+void drawLine(Point p1, Point p2, Pixel colour){
+    /*Função responsável por desenhar linhas na imagem;
+     *Parâmetros: p1 e p2 as coordenadas para o desenho,
+                  colour a cor a desenhar a linha.
+    */
+
+
+    int w = p2.x - p1.x;
+    int h = p2.y - p1.y;
+    int dx1, dy1, dx2, dy2;
+    
+    dx1 = 0;
+    dy1 = 0;
+    dx2 = 0;
+    dy2 = 0;
+    
+    if (w < 0) {
+        
+        dx1 = -1;
+    }
+    else if (w > 0) {
+        
+        dx1 = 1;
+    }
+    
+    if (h < 0) {
+        
+        dy1 = -1;
+    }
+    else if (h > 0) {
+        
+        dy1 = 1;
+    }
+    
+    if (w < 0) {
+        
+        dx2 = -1;
+    }
+    else if (w > 0) {
+        
+        dx2 = 1;
+    }
+    
+    int l = abs(w);
+    int s = abs(h);
+    
+    if (l < s) {
+        
+        l = abs(h);
+        s = abs(w);
+        
+        if (h < 0) {
+            
+            dy2 = -1;
         }
-        image[y][x] = colour;
-    } //fim while
+        else if (h > 0) {
+            
+            dy2 = 1;
+        }
+        dx2 = 0;
+    }
+    
+    int num = l >> 1;
+    
+    for (int i = 0; i <= l; i++) {
+        insertPixel(p1.x, p1.y, colour);
+        num += s;
+        
+        if (num > l) {
+            
+            num -= l;
+            p1.x += dx1;
+            p1.y += dy1;
+        }
+        else {
+            
+            p1.x += dx2;
+            p1.y += dy2;
+        }
+    }
 }
 
 
